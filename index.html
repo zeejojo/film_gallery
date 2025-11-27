@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Twilight Saga: Immortal Love</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+        body {
+            background-color: #000000;
+            color: #d4d4d4;
+            padding: 0;
+            margin: 0;
+            font-family: 'Georgia', serif;
+            line-height: 1.5;
+        }
+
+        .col-md-2dot4 {
+            width: 20%;
+        }
+
+        .headerBanner {
+            background:
+                linear-gradient(to bottom, rgba(0, 0, 0, 0) 85%, #000000 100%),
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+                url('asset/bgtwi.jpg') 15% center no-repeat;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-direction: row;
+            color: white;
+            padding: 20px;
+        }
+
+        .headerContentWrapper {
+            width: 50%;
+            padding-right: 60px;
+            padding-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+            margin-left: auto;
+            margin-bottom: auto;
+        }
+
+        @media (max-width: 992px) {
+            .headerContentWrapper {
+                width: 90%;
+                padding: 20px;
+                align-items: center;
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .headerBanner {
+                background-position: center center no-repeat;
+                height: 70vh;
+            }
+        }
+
+        .bannerTitle {
+            font-family: 'Times New Roman', serif;
+            font-size: 7rem;
+            font-weight: normal;
+            color: #f0f0f0;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .bannerSubtitle {
+            margin-top: 20px;
+            font-size: 1rem;
+            font-weight: normal;
+            padding-right: 90px;
+        }
+
+        .filmBackstory {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: #a0a0a0;
+            margin-top: 30px;
+            max-width: none;
+            margin-left: initial;
+            margin-right: initial;
+            text-align: center;
+            position: relative;
+            left: 13px;
+        }
+
+        .posterCardSection {
+            padding: 50px 0;
+            background-color: #000000;
+        }
+
+        .movieCard {
+            border: 1px solid #333;
+            background-color: #1c1c1c;
+            border-radius: 0;
+            overflow: hidden;
+            color: #d4d4d4;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .movieCard img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background-color: #121212;
+            display: block;
+        }
+
+        .cardTitle {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #f0f0f0;
+            margin: 15px 0 5px;
+            letter-spacing: 0.4px;
+            text-align: center;
+        }
+
+        .cardDetails {
+            font-size: 0.85rem;
+            color: #a0a0a0;
+            margin-top: 5px;
+            padding: 0 10px 10px;
+        }
+
+        .cardDetails strong {
+            color: #d4d4d4;
+        }
+
+        .movieCard .directed {
+            color: #d4d4d4;
+            font-size: 0.72rem;
+        }
+
+        .movieCard .mainCast {
+            font-size: 0.72rem;
+            color: #a0a0a0;
+        }
+
+        .movieGallerySection {
+            padding: 60px 0;
+            scroll-margin-top: 50px;
+        }
+
+        .movieTitle {
+            font-family: 'Times New Roman', serif;
+            color: #e0e0e0;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .movieMainImg {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+        }
+
+        .movieSubImgContainer {
+            width: 100%;
+            padding-bottom: 66.66%;
+            height: 0;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .movieSubImgContainer img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movieDescription {
+            font-family: 'Georgia', serif;
+            font-size: 0.95rem;
+            color: #b0b0b0;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .characterSectionTitle {
+            font-family: 'Times New Roman', serif;
+            color: #e0e0e0;
+            font-size: 2.2rem;
+            margin-top: 40px;
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .card {
+            background-color: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 0;
+        }
+
+        .characterCard {
+            height: 100%;
+            margin-bottom: 20px;
+        }
+
+        .characterImg {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .characterName {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #d4d4d4;
+            margin-bottom: 5px;
+            letter-spacing: 0.3px;
+        }
+
+        .characterActor {
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            margin-bottom: 10px;
+        }
+
+        .characterRoleDesc {
+            font-size: 0.8rem;
+            color: #888;
+            padding: 0 10px 10px;
+        }
+
+        .footerBox {
+            background-color: #000000;
+            text-align: center;
+            color: #888;
+            padding: 30px;
+            margin-top: 150px;
+            font-size: 0.9rem;
+        }
+
+        .container {
+            background-color: transparent;
+            border-radius: 0;
+            padding: initial;
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="headerBanner" id="topArea">
+        <div class="headerContentWrapper">
+            <div class="bannerTitle">
+                <span>The</span><br>
+                <span>Twilight</span><br>
+                <span>Saga</span>
+            </div>
+            <div class="bannerSubtitle">Eternal Life. Undying Love.</div>
+            <p class="filmBackstory">
+                The film series is based on the best-selling supernatural romance novels<br>
+                by Stephenie Meyer. The franchise achieved massive global success,<br>
+                grossing over $3.3 billion worldwide, and became a cultural<br>
+                phenomenon that defined a generation of young adult fantasy.
+            </p>
+        </div>
+    </div>
+
+    <div class="posterCardSection" id="originalNavBar">
+        <div class="container">
+            <h3 class="characterSectionTitle">The Ultimate Saga Timeline</h3>
+            <div class="row justify-content-center" id="movieCardOutput">
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div id="movieGalleryOutput">
+        </div>
+    </div>
+
+    <div class="container my-5" id="characterSection">
+        <h3 class="characterSectionTitle">The 10 Defining Characters</h3>
+        <div class="row g-4 justify-content-center" id="characterOutput">
+        </div>
+    </div>
+
+    <div class="footerBox">
+        <p>Developed by Czylle Johanne Magpantay | Web Development Project</p>
+    </div>
+
+    <script>
+        var moviePostersData = [
+            { title: "Twilight", year: "2008", director: "Catherine Hardwicke", casts: "Kristen Stewart, Robert Pattinson, Taylor Lautner, Billy Burke, Ashley Greene", image: "asset/mp1.jpg" },
+            { title: "New Moon", year: "2009", director: "Chris Weitz", casts: "Kristen Stewart, Robert Pattinson, Taylor Lautner, Dakota Fanning, Michael Sheen", image: "asset/mp2.jpg" },
+            { title: "Eclipse", year: "2010", director: "David Slade", casts: "Kristen Stewart, Robert Pattinson, Taylor Lautner, Bryce Dallas Howard, Xavier Samuel", image: "asset/mp3.jpg" },
+            { title: "Breaking Dawn Part 1", year: "2011", director: "Bill Condon", casts: "Kristen Stewart, Robert Pattinson, Taylor Lautner, Peter Facinelli, Elizabeth Reaser", image: "asset/mp4.jpg" },
+            { title: "Breaking Dawn Part 2", year: "2012", director: "Bill Condon", casts: "Kristen Stewart, Robert Pattinson, Taylor Lautner, Mackenzie Foy, Lee Pace", image: "asset/mp5.jpg" }
+        ];
+
+        var chapterData = [
+            { chapterTitle: "Twilight: The First Encounter (2008)", chapterDesc: "Isabella 'Bella' Swan moves to the gloomy town of Forks, Washington, to live with her father. There, she becomes fascinated by the mysterious Edward Cullen, who initially seems cold and distant. After a series of inexplicable events, Bella uncovers Edward's dark secret: he and his family are vampires, committed to drinking animal blood rather than human. Their intense connection deepens, but their forbidden romance is threatened when a nomadic vampire tracker targets Bella, forcing the Cullens to reveal their true protective nature.", mainImg: "asset/t0.jpg", subImgs: ["asset/t2.jpg", "asset/t3.jpg", "asset/t4.jpg", "asset/t5.jpg", "asset/t6.jpg", "asset/t7.jpg", "asset/t8.jpg", "asset/t9.jpg", "asset/t10.jpg"] },
+            { chapterTitle: "New Moon: The Pain of Separation (2009)", chapterDesc: "Following a dangerous incident at her birthday party, Edward believes Bella is no longer safe in the vampire world and abruptly leaves Forks, shattering her heart. Plunged into deep depression, Bella finds unexpected solace in her growing friendship with Jacob Black, who is revealed to be a Quileute shape-shifter (a werewolf). This new bond provides Bella with the thrill and stability she craves, but tensions rise dramatically as Edward misinterprets a vision and attempts to provoke the powerful Volturi into killing him, forcing Bella and Alice into a frantic race to Italy to save his life.", mainImg: "asset/n0.png", subImgs: ["asset/n2.jpg", "asset/n3.jpg", "asset/n4.jpg", "asset/n5.jpg", "asset/n6.jpg", "asset/n7.jpg", "asset/n8.jpg", "asset/n9.jpg", "asset/n11.jpg"] },
+            { chapterTitle: "Eclipse: Forged in Fire (2010)", chapterDesc: "Seattle is plagued by mysterious killings, and a female vampire seeks revenge, forcing the Cullens and the Wolf Pack to forge an uneasy alliance. As Bella prepares for graduation, she must reconcile her feelings for Edward and Jacob, knowing the choice she makes is permanent. This existential threat compels the rival Cullens and the Quileute Wolf Pack, led by Jacob, to form a fragile, temporary alliance to defend Bella and Forks. Bella is forced to confront the depth of her feelings for both Edward and Jacob as the final battle looms.", mainImg: "asset/e0.jpg", subImgs: ["asset/e2.jpg", "asset/e3.jpg", "asset/e4.jpg", "asset/e5.jpg", "asset/e6.jpg", "asset/e7.jpg", "asset/e8.jpg", "asset/e9.jpg", "asset/e10.jpg"] },
+            { chapterTitle: "Breaking Dawn P1: The Fateful Wedding (2011)", chapterDesc: "The film opens with the long-awaited wedding of Bella and Edward, marking the beginning of their eternal life together. Their passionate honeymoon in Brazil is abruptly cut short when Bella discovers she is pregnant with a unique half-human, half-vampire child. The rapid and dangerous growth of the fetus threatens Bella's life, forcing Jacob and the Quileutes to perceive the unborn child as a monster and plan to destroy it. Edward and the Cullens must defend Bella and their unborn child, forcing Edward to make a difficult, life-saving transformation for his love.", mainImg: "asset/b0.jpg", subImgs: ["asset/b1.jpg", "asset/b2.jpg", "asset/b3.jpg", "asset/b4.jpg", "asset/b5.jpg", "asset/b6.jpg", "asset/b7.jpg", "asset/b8.jpg", "asset/bb3.jpg"] },
+            { chapterTitle: "Breaking Dawn P2: The Final Stand (2012)", chapterDesc: "Bella awakens transformed into a newborn vampire, exhibiting incredible self-control and heightened strength. She finally embraces her immortal life alongside Edward and their daughter, Renesmee, a hybrid whose very existence is a secret. However, Irina, a relative of the Cullens, falsely reports Renesmee to the Volturi as an 'immortal child,' a dangerous abomination forbidden in the vampire world. The Cullens gather vampire allies from around the globe to stand witness against the Volturi's impending attack, culminating in a tense, apocalyptic standoff on a snow-covered battlefield that will determine their family's ultimate fate.", mainImg: "asset/p0.jpg", subImgs: ["asset/p1.jpg", "asset/p2.jpg", "asset/p3.jpg", "asset/p4.jpg", "asset/p5.jpg", "asset/p7.jpg", "asset/p9.jpg", "asset/p8.jpg", "asset/p10.jpg"] }
+        ];
+
+        var characterData = [
+            { name: "Bella Swan", actor: "Kristen Stewart", role: "The protagonist who moves to Forks and falls deeply in love with Edward. She is clumsy, self-deprecating, and possesses a unique mental shield ability.", img: "asset/bella.jpg" },
+            { name: "Edward Cullen", actor: "Robert Pattinson", role: "A century-old vampire with the ability to read minds. He is the romantic lead, known for his intensity and unwavering devotion to Bella.", img: "asset/edward.jpg" },
+            { name: "Jacob Black", actor: "Taylor Lautner", role: "Bella's best friend and a member of the Quileute tribe who phase-shifts into a large wolf. He is locked in a love triangle with Bella and Edward.", img: "asset/jacob.jpg" },
+            { name: "Charlie Swan", actor: "Billy Burke", role: "Bella's overprotective but loving father and the Chief of Police in Forks. He represents the human world that Bella tries to protect.", img: "asset/charlie.png" },
+            { name: "Alice Cullen", actor: "Ashley Greene", role: "A quirky and vivacious member of the Cullen family with the invaluable supernatural ability to foresee the future.", img: "asset/alice.jpg" },
+            { name: "Carlisle Cullen", actor: "Peter Facinelli", role: "The benevolent patriarch of the Cullen coven. He is a compassionate doctor who created his family by saving them from death.", img: "asset/carlisle.jpg" },
+            { name: "Renesmee Cullen", actor: "Mackenzie Foy", role: "The unique half-vampire, half-human daughter of Edward and Bella. She has the gift of projecting her thoughts and memories to others through touch.", img: "asset/renesmee.jpg" },
+            { name: "Aro Volturi", actor: "Michael Sheen", role: "One of the three ancient leaders of the Volturi, the de facto royalty of the vampire world. His unique gift allows him to read every thought and memory.", img: "asset/aro.jpg" },
+            { name: "Jane", actor: "Dakota Fanning", role: "A high-ranking member of the Volturi guard with the devastating ability to create painful, crippling illusions in others' minds.", img: "asset/jane.jpg" },
+            { name: "Victoria", actor: "Rachelle Lefevre / Bryce Dallas Howard", role: "A nomadic vampire and mate of James. She seeks relentless revenge on Bella and the Cullens after the death of her partner.", img: "asset/victoria.jpg" }
+        ];
+
+        characterData.sort(function (a, b) {
+            var order = {
+                "Bella Swan": 1, "Edward Cullen": 2, "Jacob Black": 3, "Charlie Swan": 4,
+                "Alice Cullen": 5, "Carlisle Cullen": 6, "Renesmee Cullen": 7, "Aro Volturi": 8,
+                "Jane": 9, "Victoria": 10
+            };
+            var aOrder = order[a.name] || 100;
+            var bOrder = order[b.name] || 100;
+            return aOrder - bOrder;
+        });
+
+        var movieCardOutput = document.getElementById("movieCardOutput");
+        var movieGalleryOutput = document.getElementById("movieGalleryOutput");
+        var characterOutput = document.getElementById("characterOutput");
+
+        var movieCardsHTML = '';
+        var colClass = 'col-6 col-sm-4 col-md-2dot4 mb-4';
+
+        for (var i = 0; i < moviePostersData.length; i++) {
+            var currentPoster = moviePostersData[i];
+            var anchorLink = `#movie_${i}`;
+            movieCardsHTML += `
+                <div class="${colClass}">
+                    <a href="${anchorLink}" class="text-decoration-none">
+                        <div class="movieCard">
+                            <img src="${currentPoster.image}" alt="${currentPoster.title} Poster">
+                            <div class="p-2">
+                                <div class="cardTitle">${currentPoster.title} (${currentPoster.year})</div>
+                                <div class="text-muted small"><span class="directed">Directed by: <strong>${currentPoster.director}</strong></span></div>
+                                <div class="cardDetails"><span class="mainCast">Main Cast: <strong>${currentPoster.casts}</strong></span></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            `;
+        }
+        movieCardOutput.innerHTML = movieCardsHTML;
+
+        var galleryHTML = '';
+        for (var j = 0; j < chapterData.length; j++) {
+            var currentChapter = chapterData[j];
+            var sectionId = `movie_${j}`;
+            var subImagesHTML = '';
+
+            for (var k = 0; k < currentChapter.subImgs.length; k++) {
+                subImagesHTML += `
+                    <div class="col-12 col-md-4 mb-3">
+                        <div class="movieSubImgContainer">
+                            <img src="${currentChapter.subImgs[k]}" alt="Gallery Photo">
+                        </div>
+                    </div>
+                `;
+            }
+
+            galleryHTML += `
+                <div class="movieGallerySection" id="${sectionId}">
+                    <h3 class="movieTitle">${currentChapter.chapterTitle}</h3>
+                    <p class="movieDescription">${currentChapter.chapterDesc}</p>
+                    
+                    <img src="${currentChapter.mainImg}" class="movieMainImg" alt="${currentChapter.chapterTitle} Main Scene">
+                    
+                    <div class="row">
+                        ${subImagesHTML}
+                    </div>
+                </div>
+            `;
+        }
+        movieGalleryOutput.innerHTML = galleryHTML;
+
+        var charactersHTML = '';
+        for (var l = 0; l < characterData.length; l++) {
+            var character = characterData[l];
+            charactersHTML += `
+                <div class="col-6 col-md-4 col-lg-3 col-md-2dot4 d-flex justify-content-center">
+                    <div class="card my-3 shadow-sm characterCard">
+                        <img src="${character.img}" class="card-img-top characterImg" alt="${character.name}">
+                        <div class="card-body p-2 d-flex flex-column">
+                            <h5 class="characterName">${character.name}</h5>
+                            <div class="characterActor">(${character.actor})</div>
+                            <p class="card-text characterRoleDesc flex-grow-1"> 
+                                ${character.role}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        characterOutput.innerHTML = charactersHTML;
+    </script>
+</body>
+
+</html>
